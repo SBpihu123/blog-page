@@ -62,8 +62,13 @@ const blogPosts = [
   }
 ]
 
-export default function BlogPost({ params }: { params: { id: string } }) {
-  // Convert params.id to number synchronously since we're using static data
+interface PageProps {
+  params: {
+    id: string
+  }
+}
+
+export default function BlogPost({ params }: PageProps) {
   const postId = Number(params.id)
   const post = blogPosts.find((p) => p.id === postId)
 
