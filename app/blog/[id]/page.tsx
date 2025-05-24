@@ -62,13 +62,7 @@ const blogPosts = [
   }
 ]
 
-interface PageProps {
-  params: {
-    id: string
-  }
-}
-
-export default function BlogPost({ params }: PageProps) {
+export default function BlogPost({ params }: { params: { id: string } }) {
   const postId = Number(params.id)
   const post = blogPosts.find((p) => p.id === postId)
 
