@@ -62,8 +62,9 @@ const blogPosts = [
   }
 ]
 
-export default async function BlogPost({ params }: { params: { id: string } }) {
-  const postId = parseInt(params.id)
+export default function BlogPost({ params }: { params: { id: string } }) {
+  // Convert params.id to number synchronously since we're using static data
+  const postId = Number(params.id)
   const post = blogPosts.find((p) => p.id === postId)
 
   if (!post) {
